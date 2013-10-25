@@ -1,0 +1,10 @@
+#!/bin/bash
+REV="HEAD"
+if [ $# -gt 0 ]; then
+  REV=$1; shift
+fi
+if [[ "$REV" == ~* ]]; then
+  REV="HEAD$REV"
+fi
+
+git show --pretty=fuller $REV $*
