@@ -8,3 +8,4 @@ set nu
 
 set ruler
 set laststatus=2
+set backspace=indent,eol,start
