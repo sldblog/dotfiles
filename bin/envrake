@@ -1,0 +1,5 @@
+#!/bin/bash
+for version in $(rbenv versions --bare); do
+  echo "$(tput setaf 3)--- version ${version} ---$(tput sgr0)"
+  RBENV_VERSION=$version rbenv exec rake $*
+done
