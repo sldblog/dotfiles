@@ -5,3 +5,6 @@ libxslt
 libxml2
 ansifilter
 openssl
+rbenv
+ruby-build
+ack
