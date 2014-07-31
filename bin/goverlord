@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '.git' -type d -exec dirname {} \; | xargs -t -I % sh -c 'cd % && git branch && PAGER=cat git log ..@{upstream} --oneline --reverse -n 5 && echo'
+gii 'git branch && PAGER=cat git log ..@{upstream} --oneline --reverse -n 5'
