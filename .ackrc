@@ -1,4 +1,5 @@
 --ignore-dir=.idea
+--ignore-dir=coverage
 --ignore-dir=log
 --ignore-dir=lib/vendor
 --ignore-dir=vendor
