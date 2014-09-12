@@ -1,3 +1,4 @@
 --ignore-dir=log
 --ignore-dir=lib/vendor
 --ignore-dir=vendor
+--ignore-file=ext:reg
