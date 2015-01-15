@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '.git' -type d -exec dirname {} \; | xargs -t -I % sh -c "cd % && $* && echo"
+findgits | xargs -t -I % sh -c "cd % && $* && echo"
