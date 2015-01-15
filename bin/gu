@@ -1,2 +1,2 @@
 #!/bin/bash
-git fetch --all --prune -v 2>&1 | grep -v "\[up to date\]" | grep -v "^Fetching"
+git fetch --all --tags --prune -v 2>&1 | grep -v "\[up to date\]" | grep -v "^Fetching"
