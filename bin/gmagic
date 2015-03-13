@@ -1,0 +1,2 @@
+#!/bin/bash
+gii '(git checkout master || git checkout production) && gu && git merge --ff-only && bundle --quiet --jobs=2 && git submodule update'
