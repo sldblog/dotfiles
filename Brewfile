@@ -1,14 +1,11 @@
-update
-
-upgrade
-
-install git
-install gradle
-install vim
-install libxslt libxml2
-install ansifilter
-install openssl
-install rbenv ruby-build
-install ack
-
-cleanup
+brew 'ack'
+brew 'ansifilter'
+brew 'ctags'
+brew 'git'
+brew 'gradle'
+brew 'libxml2'
+brew 'libxslt'
+brew 'openssl'
+brew 'rbenv'
+brew 'ruby-build'
+brew 'vim'
