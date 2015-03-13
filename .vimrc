@@ -13,6 +13,9 @@ Plugin 'bling/vim-airline'
 Plugin 'rhysd/committia.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-rails.git'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'kien/ctrlp.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -57,3 +60,5 @@ set nu
 set ruler
 set laststatus=2
 set backspace=indent,eol,start
+set splitbelow
+set splitright
