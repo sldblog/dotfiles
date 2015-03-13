@@ -1,2 +1,2 @@
 #!/bin/bash
-findgits | xargs -t -I % sh -c "cd % && $* && echo"
+findgits | xargs -t -I % sh -c "echo '$(tput setaf 2)--- % ---$(tput sgr0)'; cd % && $*; echo"
