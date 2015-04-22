@@ -16,6 +16,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-rails.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
