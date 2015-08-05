@@ -1,4 +1,4 @@
-brew 'ack'
+brew 'ag'
 brew 'ansifilter'
 brew 'ctags'
 brew 'git'
