@@ -1,4 +1,5 @@
 [user]
+	email = david.lantos@gmail.com
 	name = David Lantos
 [push]
 	default = simple
@@ -6,3 +7,5 @@
 	tool = p4merge
 [mergetool "p4merge"]
 	path = /Applications/p4merge.app/Contents/MacOS/p4merge
+[core]
+	excludesfile = /Users/davidlantos/+Environment/dotfiles/.gitignore
