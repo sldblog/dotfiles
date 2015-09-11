@@ -1,0 +1,7 @@
+.idea/
+coverage/
+dist/
+log/
+vendor/
+
+tags

@@ -1,5 +1,5 @@
 #!/bin/bash
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
-for file in .gemrc .gitconfig .vimrc; do
+for file in .gemrc .gitconfig .vimrc .agignore; do
   ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
 done
