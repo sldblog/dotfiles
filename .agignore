@@ -2,6 +2,7 @@
 coverage/
 dist/
 log/
+node_modules/
 vendor/
 
 tags
