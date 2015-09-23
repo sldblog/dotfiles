@@ -4,4 +4,7 @@ for file in .gemrc .gitconfig .vimrc .agignore; do
   ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
 done
 vim +PluginInstall +qall && echo "vim plugins installed"
+
 $DOTFILES/bin/zsh.install
+pip install --requirement $DOTFILES/Pipfile
+brew brewdle --file=$DOTFILES/Brewfile
