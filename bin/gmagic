@@ -1,2 +1,2 @@
 #!/bin/bash
-gii '(git checkout master || git checkout production) && gu && if [ -f Gemfile.lock ]; then git checkout Gemfile.lock; fi && git merge --ff-only && if [ -f Gemfile ]; then bundle --quiet --jobs=2; fi && git submodule update'
+gii '(git checkout master || git checkout production) && gu && if [ -f Gemfile.lock ]; then git checkout Gemfile.lock; fi && git merge --ff-only && if [ -f Gemfile ]; then rm -f .bundle/config && bundle --quiet --jobs=2; fi && git submodule update'
