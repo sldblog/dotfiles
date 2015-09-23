@@ -70,6 +70,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+let g:airline_powerline_fonts = 1
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
 set grepprg=ag\ --nogroup\ --nocolor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
