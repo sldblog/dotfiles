@@ -1,4 +1,3 @@
-brew 'ag'
 brew 'ansifilter'
 brew 'ctags'
 brew 'git'
@@ -8,6 +7,7 @@ brew 'jq'
 brew 'libxml2'
 brew 'libxslt'
 brew 'openssl'
+brew 'the_silver_searcher'
 brew 'vim'
 
 brew 'leiningen'
