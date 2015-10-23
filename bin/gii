@@ -1,2 +1,8 @@
 #!/bin/bash
-findgits | xargs -t -I % sh -xc "cd % && $*"
+command_file=$(mktemp -t "gii.command")
+echo "$*" > $command_file
+chmod +x $command_file
+echo "Command: $command_file"
+echo "$*"
+
+findgits | xargs -I % sh -c "echo; echo '$(tput setaf 2)--- % ---$(tput sgr0)'; cd % && $command_file"
