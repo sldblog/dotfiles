@@ -1,4 +1,0 @@
-#!/bin/bash
-theme_file="$HOME/.oh-my-zsh/themes/bullet-train.zsh-theme"
-rm -f $theme_file
-curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -o $theme_file
