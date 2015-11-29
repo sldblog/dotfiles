@@ -1,5 +1,7 @@
 brew 'ansifilter'
 brew 'ctags'
+brew 'docker-compose'
+brew 'docker-machine'
 brew 'git'
 brew 'gradle'
 brew 'htop'
