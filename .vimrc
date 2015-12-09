@@ -69,6 +69,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-N><C-N> :<C-U>NERDTree<CR>
+nnoremap <C-N><C-F> :<C-U>NERDTreeFind<CR>
 
 let g:airline_powerline_fonts = 1
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
