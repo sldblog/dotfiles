@@ -3,6 +3,6 @@ gii 'git checkout master && \
   gu && \
   if [ "$(git ls-files Gemfile.lock)" = "Gemfile.lock" ]; then git checkout Gemfile.lock; fi && \
   git merge --ff-only && \
-  if [ -f Gemfile ]; then rm -f .bundle/config && bundle --jobs=4; fi && \
-  if [ "$(git ls-files .bundle)" != "" ]; then git checkout .bundle; fi && \
+  if [ -f Gemfile ]; then git clean -fdx -- .bundle && bundle --jobs=4; fi && \
+  if [ "$(git ls-files .bundle)" != "" ]; then git checkout .bundle; else git clean -fdx -- .bundle; fi && \
   git submodule update'
