@@ -6,6 +6,8 @@ function symlink_files {
   for file in .gemrc .gitconfig .vimrc .agignore; do
     ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
   done
+  mkdir -p $HOME/.lein
+  ln -s lein-profiles.clj $HOME/.lein/profiles.clj && echo "$HOME/.lein/profiles.clj linked"
 }
 
 function install_dependencies {
