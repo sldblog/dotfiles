@@ -1,0 +1,6 @@
+plugins=(ruby $plugins)
+
+alias be='bundle exec'
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
