@@ -11,7 +11,7 @@ function symlink_files {
 }
 
 function install_dependencies {
-  pip install --requirement $DOTFILES/Pipfile
+  pip install --upgrade --requirement $DOTFILES/Pipfile
   brew brewdle --file=$DOTFILES/Brewfile
 }
 
