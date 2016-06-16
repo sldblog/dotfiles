@@ -2,6 +2,7 @@ DOTFILES=$(dirname $0)
 export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 
 plugins=(git brew) # extended by sourcing below
+source $DOTFILES/.docker.rc
 source $DOTFILES/.editor.rc
 source $DOTFILES/.java.rc
 source $DOTFILES/.ruby.rc
