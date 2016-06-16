@@ -11,7 +11,7 @@ Plugin 'tpope/vim-fugitive'             " fugitive.vim: a Git wrapper so awesome
 Plugin 'rking/ag.vim'                   " Vim plugin for the_silver_searcher, 'ag'
 Plugin 'tpope/vim-rails.git'            " rails.vim: Ruby on Rails power tools
 Plugin 'scrooloose/nerdtree.git'        " A tree explorer plugin for vim
-Plugin 'kien/ctrlp.vim'                 " Fuzzy file, buffer, mru, tag, etc finder
+Plugin 'ctrlpvim/ctrlp.vim'             " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'kien/rainbow_parentheses.vim'   " Better Rainbow Parentheses
 Plugin 'guns/vim-clojure-static'        " Meikel Brandmeyer's excellent Clojure runtime files
 call vundle#end()            " required
