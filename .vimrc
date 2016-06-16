@@ -39,8 +39,13 @@ nnoremap <C-N><C-N> :<C-U>NERDTree<CR>
 nnoremap <C-N><C-F> :<C-U>NERDTreeFind<CR>
 
 let g:airline_powerline_fonts = 1
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
-set grepprg=ag\ --nogroup\ --nocolor
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l -i --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 autocmd VimEnter *       RainbowParenthesesToggle
