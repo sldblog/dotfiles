@@ -3,17 +3,6 @@ function findgits {
   find . -name '.git' -type d -exec dirname {} \;
 }
 
-# Wrapper for command executions within a directory
-function local_exec {
-  local command_file=$(mktemp -t "gii.command")
-  echo "$*" > $command_file
-  chmod +x $command_file
-  echo "Command: $command_file"
-  echo "$*"
-
-  xargs -I % sh -c "echo; echo '$(tput setaf 2)--- % ---$(tput sgr0)'; cd % && $command_file"
-}
-
 # Execute a command on each git repository from the local directory
 function gii {
   findgits | local_exec "$@"

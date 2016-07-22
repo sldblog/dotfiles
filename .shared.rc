@@ -1,0 +1,11 @@
+# Wrapper for command executions within a directory
+# Usage: <command that returns directories> | local_exec "command to execute in all directories"
+function local_exec {
+  local command_file=$(mktemp -t "local_exec.command")
+  echo "$*" > $command_file
+  chmod +x $command_file
+  echo "Command: $command_file"
+  echo "$*"
+
+  xargs -I % sh -c "echo; echo '$(tput setaf 2)--- % ---$(tput sgr0)'; cd % && $command_file"
+}

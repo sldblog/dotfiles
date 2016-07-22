@@ -9,3 +9,8 @@ function docker-update {
   local filter="$1"
   docker images | grep "$filter" | awk '{ print $1":"$2; }' | sort | uniq | xargs -t -I {} docker pull {}
 }
+
+# Execute a command on each folder with Dockerfile from the local directory
+function dii {
+  find . -name 'Dockerfile' -type f -exec dirname {} \; | local_exec "$@"
+}
