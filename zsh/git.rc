@@ -7,3 +7,14 @@ function findgits {
 function gii {
   findgits | local_exec "$@"
 }
+
+# Show either HEAD or the given reference commit
+function gh {
+  local ref="HEAD"
+  if [ $# -gt 0 ]; then
+    local ref="$1"
+    shift
+  fi
+
+  git show --pretty=fuller ${ref} $*
+}
