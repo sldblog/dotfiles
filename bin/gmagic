@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 gii 'git checkout master && \
   gu && \
   if [ "$(git ls-files Gemfile.lock)" = "Gemfile.lock" ]; then git checkout Gemfile.lock; fi && \

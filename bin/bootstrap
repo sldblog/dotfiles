@@ -3,7 +3,7 @@
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
 
 function symlink_files {
-  for file in .gemrc .gitconfig .vimrc .agignore; do
+  for file in .zshenv .gemrc .gitconfig .vimrc .agignore; do
     ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
   done
   mkdir -p $HOME/.lein
