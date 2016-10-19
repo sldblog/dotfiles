@@ -4,10 +4,13 @@ function docker-cleanup {
   docker images --no-trunc --quiet --filter 'dangling=true' | xargs -t docker rmi -f
 }
 
-# Pulls new versions for all images matching filter
+# Pulls new versions for all images matching filter, while skipping dangling images
 function docker-update {
-  local filter="$1"
-  docker images | grep "$filter" | awk '{ print $1":"$2; }' | sort | uniq | xargs -t -I {} docker pull {}
+  local filter="${1:=.*}"
+  docker images --format '{{ .Repository }}:{{ .Tag }}' \
+    | grep -v ":<none>" | grep "$filter" \
+    | sort | uniq \
+    | xargs -I % sh -c 'echo; echo "-- Pulling $(tput setaf 3)%$(tput sgr0) ------------"; docker pull %'
 }
 
 # Execute a command on each folder with Dockerfile from the local directory
