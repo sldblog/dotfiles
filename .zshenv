@@ -3,7 +3,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 
 plugins=(git brew) # extended by sourcing below
 source $DOTFILES/zsh/shared.rc
-source $DOTFILES/zsh/man.rc
+source $DOTFILES/zsh/shell.rc
 source $DOTFILES/zsh/git.rc
 source $DOTFILES/zsh/docker.rc
 source $DOTFILES/zsh/editor.rc
