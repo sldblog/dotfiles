@@ -18,3 +18,8 @@ function gh {
 
   git show --pretty=fuller ${ref} $*
 }
+
+# Show files that changed since "origin/master"
+function what_changed {
+  (git diff --name-only origin/master..HEAD; git ls-files -us) | cat
+}
