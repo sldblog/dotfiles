@@ -21,5 +21,5 @@ function gh {
 
 # Show files that changed since "origin/master"
 function what_changed {
-  (git diff --name-only origin/master..HEAD; git ls-files -us) | cat
+  (git diff --name-only --diff-filter=d origin/master..HEAD; git ls-files -us) | cat
 }
