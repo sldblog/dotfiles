@@ -5,6 +5,11 @@ alias be='bundle exec'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Show code files that changed since "origin/master"
+function what_code_changed {
+  what_changed | grep '.rb$' | grep -v 'db/'
+}
+
 # Show spec files that changed since "origin/master"
 function what_specs_changed {
   what_changed | grep '_spec.rb$'
