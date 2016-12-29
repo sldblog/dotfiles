@@ -5,3 +5,5 @@ BULLETTRAIN_RUBY_PREFIX="💎"
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+eval "$(rbenv init -)"
