@@ -1,8 +1,8 @@
 # Removes all exited containers and removes all dangling images
 function docker-cleanup {
-  docker ps --filter status=exited --no-trunc --quiet | xargs -t docker rm -f
+  docker ps     --no-trunc --quiet --filter 'status=exited' | xargs -t docker rm -f
   docker images --no-trunc --quiet --filter 'dangling=true' | xargs -t docker rmi -f
-  docker volume ls -f 'dangling=true' -q | xargs -t docker volume rm
+  docker volume ls         --quiet --filter 'dangling=true' | xargs -t docker volume rm
 }
 
 # Pulls new versions for all images matching filter, while skipping dangling images
