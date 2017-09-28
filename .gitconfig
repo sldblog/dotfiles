@@ -13,3 +13,5 @@
 	excludesfile = /Users/davidlantos/+Environment/dotfiles/.gitignore
 [mergetool]
 	keepBackup = false
+[alias]
+	rl = reflog --date=iso
