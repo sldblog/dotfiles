@@ -15,3 +15,4 @@
 	keepBackup = false
 [alias]
 	rl = reflog --date=iso
+	ll = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(green)%d%Creset %s %Cblue(%cr - %cd) %C(bold blue)<%ae>%Creset' --abbrev-commit

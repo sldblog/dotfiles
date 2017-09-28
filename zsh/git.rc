@@ -23,3 +23,5 @@ function gh {
 function what_changed {
   (git diff --name-only --diff-filter=d origin/master..HEAD; git ls-files -us) | cat
 }
+
+alias gll='git ll'
