@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree.git'        " A tree explorer plugin for vim
 Plugin 'ctrlpvim/ctrlp.vim'             " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'kien/rainbow_parentheses.vim'   " Better Rainbow Parentheses
 Plugin 'guns/vim-clojure-static'        " Meikel Brandmeyer's excellent Clojure runtime files
+Plugin 'majutsushi/tagbar'              " Vim plugin that displays tags in a window, ordered by scope
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -39,6 +40,17 @@ nnoremap <C-N><C-N> :<C-U>NERDTree<CR>
 nnoremap <C-N><C-F> :<C-U>NERDTreeFind<CR>
 
 let g:airline_powerline_fonts = 1
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -47,6 +59,7 @@ if executable('ag')
 endif
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap <F8> :TagbarToggle<CR>
 
 autocmd VimEnter *       RainbowParenthesesToggle
 autocmd Syntax   clojure RainbowParenthesesLoadRound
