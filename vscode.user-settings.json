@@ -1,0 +1,27 @@
+{
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true,
+    "suppressShowKeyBindingsNotice": true,
+  },
+  "gitlens.codeLens.enabled": false,
+  "gitlens.historyExplorer.enabled": true,
+
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 12.5,
+  "editor.minimap.enabled": false,
+  "editor.renderIndentGuides": false,
+  "editor.rulers": [120, 140],
+  "editor.tabSize": 2,
+
+  "window.zoomLevel": 0,
+
+  "workbench.colorTheme": "Monokai Dimmed",
+
+  "[python]": {
+    "editor.tabSize": 4
+  },
+}
