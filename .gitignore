@@ -1,4 +1,9 @@
-/.elixir_ls
-/tags
+*.iml
 *.swp
 .DS_Store
+.elixir_ls/
+.idea/
+.pytest_cache/
+.vscode/
+tmp/
+tags
