@@ -12,8 +12,8 @@ function symlink_files {
 }
 
 function install_dependencies {
+  brew bundle --file=$DOTFILES/Brewfile
   pip install --upgrade --requirement $DOTFILES/Pipfile
-  brew brewdle --file=$DOTFILES/Brewfile
 }
 
 function install_zsh_addons {
