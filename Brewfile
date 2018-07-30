@@ -9,3 +9,6 @@ brew 'clojure'
 brew 'python'
 brew 'rbenv'
 brew 'ruby-build'
+
+cask_args appdir: "/Applications"
+cask 'p4v'
