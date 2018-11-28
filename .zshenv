@@ -9,5 +9,6 @@ source $DOTFILES/zsh/editor.rc
 source $DOTFILES/zsh/elixir.rc
 source $DOTFILES/zsh/git.rc
 source $DOTFILES/zsh/java.rc
+source $DOTFILES/zsh/kubernetes.rc
 source $DOTFILES/zsh/ruby.rc
 source $DOTFILES/zsh/services.rc
