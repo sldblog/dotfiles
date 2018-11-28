@@ -5,6 +5,9 @@ brew 'openssl'
 brew 'the_silver_searcher'
 brew 'vim'
 
+brew 'gpg'
+brew 'pinentry-mac'
+
 brew 'clojure'
 brew 'python'
 brew 'rbenv'
