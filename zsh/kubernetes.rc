@@ -1,1 +1,1 @@
-plugins=(kubectl $plugins)
+plugins=(kubectl minikube $plugins)
