@@ -8,6 +8,9 @@ brew 'vim'
 brew 'gpg'
 brew 'pinentry-mac'
 
+brew 'kubernetes-cli'
+brew 'stern'
+
 brew 'clojure'
 brew 'python'
 brew 'rbenv'
