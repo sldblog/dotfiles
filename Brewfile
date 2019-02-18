@@ -9,6 +9,7 @@ brew 'gpg'
 brew 'pinentry-mac'
 
 brew 'kubernetes-cli'
+brew 'kubectx'
 brew 'stern'
 
 brew 'clojure'
