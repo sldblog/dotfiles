@@ -1,1 +1,1 @@
-plugins=(kubectl minikube $plugins)
+plugins=(kubectl kube-ps1 $plugins)

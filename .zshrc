@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 # override bullettrain prompt
 PROMPT=''
 [[ $BULLETTRAIN_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
-PROMPT="$PROMPT"'%{%f%b%k%}$(build_prompt)'
+PROMPT="$PROMPT"'%{%f%b%k%}$(build_prompt)$(kube_ps1)'
 [[ $BULLETTRAIN_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
 PROMPT="$PROMPT"'%{${fg_bold[default]}%}'
 [[ $BULLETTRAIN_PROMPT_SEPARATE_LINE == false ]] && PROMPT="$PROMPT "
