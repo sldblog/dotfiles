@@ -1,22 +1,36 @@
 #!/bin/bash
 
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
+UNAME="$(uname)"
 
 function symlink_files {
   for file in .zshenv .zshrc .gemrc .gitconfig .vimrc .agignore .iex.exs; do
     ln -si $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
   done
-  ln -si $DOTFILES/vscode.user-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
   mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
   ln -si $DOTFILES/gpg-agent.conf "$HOME/.gnupg/gpg-agent.conf"
 
   mkdir -p $HOME/.lein
   ln -si lein-profiles.clj $HOME/.lein/profiles.clj && echo "$HOME/.lein/profiles.clj linked"
+
+  local vscode_settings_location=""
+  if [ "$UNAME" == "Linux" ]; then
+    vscode_settings_location="$HOME/.config/Code - OSS/User/settings.json"
+  else
+    vscode_settings_location="$HOME/Library/Application Support/Code/User/settings.json"
+  fi
+  ln -si $DOTFILES/vscode.user-settings.json "$vscode_settings_location"
 }
 
 function install_dependencies {
-  brew bundle --file=$DOTFILES/Brewfile
+  if [ "$UNAME" == "Linux" ]; then
+    local packages=$(tr '\n' ' ' < $DOTFILES/Pacman-packages)
+    sudo pacman --sync --refresh
+    sudo pacman --sync --needed --noconfirm $packages
+  else
+    brew bundle --file=$DOTFILES/Brewfile
+  fi
   pip install --upgrade --requirement $DOTFILES/Pipfile
 }
 
