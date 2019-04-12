@@ -1,6 +1,7 @@
 [user]
 	email = david.lantos@gmail.com
 	name = David Lantos
+	signingkey = 0x46744D6E3CC64734
 [push]
 	default = simple
 [merge]
