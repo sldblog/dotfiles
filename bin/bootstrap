@@ -3,6 +3,10 @@
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
 UNAME="$(uname)"
 
+function install_zsh {
+  git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+}
+
 function symlink_files {
   for file in .zshenv .zshrc .gemrc .gitconfig .vimrc .agignore .iex.exs; do
     ln -si $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
@@ -47,6 +51,7 @@ function install_vim_addons {
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
+install_zsh
 symlink_files
 install_dependencies
 install_vim_addons
