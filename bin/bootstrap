@@ -3,11 +3,23 @@
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
 UNAME="$(uname)"
 
+function msg_progress {
+  echo -e "\n\e[33m🕵 $1\e[0m"
+}
+
+function msg_done {
+  echo -e "\n\e[32m✳ Done!\e[0m"
+}
+
 function install_zsh {
+  msg_progress "Installing oh-my-zsh."
+
   git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 }
 
 function symlink_files {
+  msg_progress "Linking files."
+
   for file in .zshenv .zshrc; do
     ln -si "$DOTFILES/zsh/$file" "$HOME/$file"
   done
@@ -32,8 +44,11 @@ function symlink_files {
 }
 
 function install_dependencies {
+  msg_progress "Installing dependencies."
+
   if [ "$UNAME" == "Linux" ]; then
     local packages=$(tr '\n' ' ' < $DOTFILES/Pacmanfile)
+    msg_progress "May ask for sudo password."
     sudo pacman --sync --refresh
     sudo pacman --sync --needed --noconfirm $packages
   else
@@ -43,6 +58,8 @@ function install_dependencies {
 }
 
 function apply_git_config {
+  msg_progress "Applying git configuration."
+
   git config --global user.email "david.lantos@gmail.com"
   git config --global user.name "David Lantos"
 
@@ -67,6 +84,8 @@ function apply_git_config {
 }
 
 function install_zsh_addons {
+  msg_progress "Installing zsh addons."
+
   theme_file="$HOME/.oh-my-zsh/themes/bullet-train.zsh-theme"
   rm -f $theme_file
   curl --silent https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
@@ -74,6 +93,8 @@ function install_zsh_addons {
 }
 
 function install_vim_addons {
+  msg_progress "Installing vim addons."
+
   mkdir -p $HOME/.vim/bundle/
   git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall && echo "vim plugins installed"
@@ -85,3 +106,5 @@ install_dependencies
 install_vim_addons
 install_zsh_addons
 apply_git_config
+
+msg_done
