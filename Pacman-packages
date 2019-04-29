@@ -1,5 +1,7 @@
 chromium
 code
+git
+git-lfs
 htop
 jq
 vim

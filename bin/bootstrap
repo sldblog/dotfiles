@@ -8,7 +8,7 @@ function install_zsh {
 }
 
 function symlink_files {
-  for file in .zshenv .zshrc .gemrc .gitconfig .vimrc .agignore .iex.exs; do
+  for file in .zshenv .zshrc .gemrc .vimrc .agignore .iex.exs; do
     ln -si $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
   done
 
@@ -38,6 +38,30 @@ function install_dependencies {
   pip install --upgrade --requirement $DOTFILES/Pipfile
 }
 
+function apply_git_config {
+  git config --global user.email "david.lantos@gmail.com"
+  git config --global user.name "David Lantos"
+
+  git config --global user.signingkey "0x46744D6E3CC64734"
+  git config --global commit.gpgsign "true"
+
+  git config --global core.excludesfile "$DOTFILES/.gitignore"
+  git config --global push.default "simple"
+
+  git config --global mergetool.keepBackup "false"
+
+  if [ "$UNAME" == "Darwin" ]; then
+    git config --global merge.tool "p4merge"
+    git config --global diff.tool "p4merge"
+    git config --global mergetool.p4merge.path "/Applications/p4merge.app/Contents/MacOS/p4merge"
+  fi
+
+  git config --global alias.rl "reflog --date=iso"
+  git config --global alias.ll "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(green)%d%Creset %s %Cblue(%cr - %cd) %C(bold blue)<%ae>%Creset' --abbrev-commit"
+
+  git lfs install
+}
+
 function install_zsh_addons {
   theme_file="$HOME/.oh-my-zsh/themes/bullet-train.zsh-theme"
   rm -f $theme_file
@@ -56,3 +80,4 @@ symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+apply_git_config
