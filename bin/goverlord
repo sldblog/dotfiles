@@ -1,2 +1,0 @@
-#!/bin/bash
-gii 'git branch && git status -s && PAGER=cat git log ..@{upstream} --oneline --reverse -n 5'
