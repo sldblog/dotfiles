@@ -8,15 +8,19 @@ function install_zsh {
 }
 
 function symlink_files {
-  for file in .zshenv .zshrc .gemrc .vimrc .agignore .iex.exs; do
-    ln -si $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
+  for file in .zshenv .zshrc; do
+    ln -si "$DOTFILES/zsh/$file" "$HOME/$file"
+  done
+
+  for file in .gemrc .vimrc .agignore .iex.exs; do
+    ln -si "$DOTFILES/configuration/$file" "$HOME/$file"
   done
 
   mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
-  ln -si $DOTFILES/gpg-agent.conf "$HOME/.gnupg/gpg-agent.conf"
+  ln -si "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
   mkdir -p $HOME/.lein
-  ln -si lein-profiles.clj $HOME/.lein/profiles.clj && echo "$HOME/.lein/profiles.clj linked"
+  ln -si "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
 
   local vscode_settings_location=""
   if [ "$UNAME" == "Linux" ]; then
@@ -24,12 +28,12 @@ function symlink_files {
   else
     vscode_settings_location="$HOME/Library/Application Support/Code/User/settings.json"
   fi
-  ln -si $DOTFILES/vscode.user-settings.json "$vscode_settings_location"
+  ln -si "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location"
 }
 
 function install_dependencies {
   if [ "$UNAME" == "Linux" ]; then
-    local packages=$(tr '\n' ' ' < $DOTFILES/Pacman-packages)
+    local packages=$(tr '\n' ' ' < $DOTFILES/Pacmanfile)
     sudo pacman --sync --refresh
     sudo pacman --sync --needed --noconfirm $packages
   else
@@ -45,7 +49,7 @@ function apply_git_config {
   git config --global user.signingkey "0x46744D6E3CC64734"
   git config --global commit.gpgsign "true"
 
-  git config --global core.excludesfile "$DOTFILES/.gitignore"
+  git config --global core.excludesfile "$DOTFILES/configuration/.gitignore"
   git config --global push.default "simple"
 
   git config --global mergetool.keepBackup "false"
