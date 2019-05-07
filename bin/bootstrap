@@ -4,11 +4,11 @@ DOTFILES="$(cd $(dirname $0)/.. && pwd)"
 UNAME="$(uname)"
 
 function msg_progress {
-  echo -e "\n\e[33m🕵 $1\e[0m"
+  echo -e "\n\033[33m🕵 $1\033[0m"
 }
 
 function msg_done {
-  echo -e "\n\e[32m✳ Done!\e[0m"
+  echo -e "\n\033[32m✳ Done!\033[0m"
 }
 
 function install_zsh {
