@@ -11,10 +11,13 @@
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
 
+  "editor.fontSize": 13,
+  "debug.console.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
+
   "breadcrumbs.enabled": true,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 12.5,
   "editor.minimap.enabled": false,
   "editor.renderIndentGuides": false,
   "editor.rulers": [120, 140],
