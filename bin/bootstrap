@@ -52,7 +52,7 @@ function install_dependencies {
     sudo pacman --sync --refresh
     sudo pacman --sync --needed --noconfirm $packages
   else
-    brew bundle --file=$DOTFILES/Brewfile
+    brew bundle check --file=$DOTFILES/Brewfile &>/dev/null  || brew bundle --file=$DOTFILES/Brewfile
   fi
   pip install --upgrade --requirement $DOTFILES/Pipfile
 }
