@@ -23,6 +23,8 @@
   "editor.rulers": [120, 140],
   "editor.tabSize": 2,
 
+  "search.useGlobalIgnoreFiles": true,
+
   "window.zoomLevel": 0,
 
   "workbench.colorTheme": "Monokai Dimmed",
