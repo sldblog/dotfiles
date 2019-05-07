@@ -4,6 +4,8 @@
     "suppressShowKeyBindingsNotice": true,
   },
   "gitlens.codeLens.enabled": false,
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
 
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
