@@ -8,7 +8,6 @@ BULLETTRAIN_PROMPT_ORDER=(
   custom
   context
   dir
-  ruby
   git
   cmd_exec_time
 )
