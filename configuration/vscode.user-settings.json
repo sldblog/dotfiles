@@ -11,6 +11,7 @@
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
 
+  "breadcrumbs.enabled": true,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 12.5,
