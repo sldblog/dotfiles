@@ -36,7 +36,7 @@ function symlink_files {
   ln -svf "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
 
   local vscode_settings_location=""
-  if [ "$UNAME" == "Linux" ]; then
+  if [ "$UNAME" = "Linux" ]; then
     vscode_settings_location="$HOME/.config/Code - OSS/User/settings.json"
   else
     vscode_settings_location="$HOME/Library/Application Support/Code/User/settings.json"
@@ -45,16 +45,19 @@ function symlink_files {
 }
 
 function install_dependencies {
-  msg_progress "Installing dependencies."
-
-  if [ "$UNAME" == "Linux" ]; then
+  if [ "$UNAME" = "Linux" ]; then
+    msg_progress "Installing Pacman dependencies. May ask for sudo password."
     local packages=$(tr '\n' ' ' < $DOTFILES/Pacmanfile)
-    msg_progress "May ask for sudo password."
     sudo pacman --sync --refresh
     sudo pacman --sync --needed --noconfirm $packages
-  else
+  fi
+
+  if [ "$UNAME" = "Darwin" ]; then
+    msg_progress "Installing Brew dependencies."
     brew bundle check --file=$DOTFILES/Brewfile &>/dev/null  || brew bundle --file=$DOTFILES/Brewfile
   fi
+
+  msg_progress "Installing Pip dependencies."
   pip install --upgrade --requirement $DOTFILES/Pipfile
 }
 
@@ -64,7 +67,7 @@ function apply_java_config {
     return
   fi
 
-  if [ "$UNAME" == "Linux" ]; then
+  if [ "$UNAME" = "Linux" ]; then
     msg_progress "Configuring default Java, may ask for sudo password."
     sudo archlinux-java set java-11-openjdk
   fi
@@ -84,7 +87,7 @@ function apply_git_config {
 
   git config --global mergetool.keepBackup "false"
 
-  if [ "$UNAME" == "Darwin" ]; then
+  if [ "$UNAME" = "Darwin" ]; then
     git config --global merge.tool "p4merge"
     git config --global diff.tool "p4merge"
     git config --global mergetool.p4merge.path "/Applications/p4merge.app/Contents/MacOS/p4merge"
