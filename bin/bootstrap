@@ -22,18 +22,18 @@ function symlink_files {
   msg_progress "Linking files."
 
   for file in .zshenv .zshrc; do
-    ln -si "$DOTFILES/zsh/$file" "$HOME/$file"
+    ln -svf "$DOTFILES/zsh/$file" "$HOME/$file"
   done
 
   for file in .gemrc .vimrc .agignore .iex.exs; do
-    ln -si "$DOTFILES/configuration/$file" "$HOME/$file"
+    ln -svf "$DOTFILES/configuration/$file" "$HOME/$file"
   done
 
   mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
-  ln -si "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+  ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
   mkdir -p $HOME/.lein
-  ln -si "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
+  ln -svf "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
 
   local vscode_settings_location=""
   if [ "$UNAME" == "Linux" ]; then
@@ -41,7 +41,7 @@ function symlink_files {
   else
     vscode_settings_location="$HOME/Library/Application Support/Code/User/settings.json"
   fi
-  ln -si "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location"
+  ln -svf "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location"
 }
 
 function install_dependencies {
