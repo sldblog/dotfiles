@@ -58,6 +58,18 @@ function install_dependencies {
   pip install --upgrade --requirement $DOTFILES/Pipfile
 }
 
+function apply_java_config {
+  msg_progress "Checking Java version."
+  if java -version 2>&1 | grep 'version "11.'; then
+    return
+  fi
+
+  if [ "$UNAME" == "Linux" ]; then
+    msg_progress "Configuring default Java, may ask for sudo password."
+    sudo archlinux-java set java-11-openjdk
+  fi
+}
+
 function apply_git_config {
   msg_progress "Applying git configuration."
 
@@ -107,6 +119,7 @@ symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+apply_java_config
 apply_git_config
 
 msg_done

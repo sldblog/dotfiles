@@ -6,7 +6,9 @@ htop
 jq
 vim
 
-docker
 elixir
+jdk11-openjdk
+
+docker
 kubectl
 python-pip
