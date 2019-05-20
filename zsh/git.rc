@@ -1,3 +1,5 @@
+plugins=(git $plugins)
+
 # Find all directories which have a (not bare) git repository in them
 function findgits {
   find . -name '.git' -type d -exec dirname {} \;
