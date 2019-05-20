@@ -9,6 +9,8 @@ vim
 elixir
 jdk11-openjdk
 
+ntp
+
 docker
 kubectl
 python-pip

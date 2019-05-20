@@ -73,6 +73,17 @@ function apply_java_config {
   fi
 }
 
+function apply_time_config {
+  if [ "$UNAME" = "Linux" ]; then
+    msg_progress "Configuring NTP service, may ask for sudo password."
+
+    if ! timedatectl status | grep "NTP service: active"; then
+      sudo timedatectl set-ntp true
+      echo "NTP set to active."
+    fi
+  fi
+}
+
 function apply_git_config {
   msg_progress "Applying git configuration."
 
@@ -122,6 +133,7 @@ symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+apply_time_config
 apply_java_config
 apply_git_config
 
