@@ -11,6 +11,8 @@ jdk11-openjdk
 
 ntp
 
+aws-cli
 docker
+docker-compose
 kubectl
 python-pip
