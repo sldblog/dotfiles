@@ -1,1 +1,3 @@
 plugins=(kubectl kube-ps1 $plugins)
+
+alias jq-secret="jq '.data | map_values(@base64d)'"
