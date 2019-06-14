@@ -4,6 +4,7 @@ git
 git-lfs
 htop
 jq
+moreutils
 vim
 
 elixir

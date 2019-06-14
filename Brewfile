@@ -1,6 +1,7 @@
 brew 'git'
 brew 'htop'
 brew 'jq'
+brew 'moreutils'
 brew 'openssl'
 brew 'the_silver_searcher'
 brew 'vim'
