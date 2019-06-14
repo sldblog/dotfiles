@@ -16,4 +16,5 @@ aws-cli
 docker
 docker-compose
 kubectl
+postgresql-libs
 python-pip
