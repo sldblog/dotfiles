@@ -1,20 +1,23 @@
+aws-cli
+bind-tools
 chromium
 code
+docker
+docker-compose
 git
 git-lfs
 htop
 jq
+kubectl
 moreutils
+postgresql-libs
 vim
 
-elixir
-jdk11-openjdk
-
+noto-fonts-emoji
 ntp
+xorg-xrandr
 
-aws-cli
-docker
-docker-compose
-kubectl
-postgresql-libs
+elixir
+go
+jdk11-openjdk
 python-pip
