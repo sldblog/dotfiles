@@ -113,7 +113,7 @@ function apply_git_config {
 function install_zsh_addons {
   msg_progress "Installing zsh addons."
 
-  theme_file="$HOME/.oh-my-zsh/themes/bullet-train.zsh-theme"
+  theme_file="$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
   rm -f $theme_file
   curl --silent https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
     -o $theme_file && echo "zsh theme $(basename $theme_file) installed"
