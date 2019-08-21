@@ -13,17 +13,10 @@ BULLETTRAIN_PROMPT_ORDER=(
   kube
 )
 
-_kubectl_context() {
-  kubectl config get-contexts | grep "*" | awk '{print $2}'
-}
-
-_kubectl_namespace() {
-  kubectl config get-contexts | grep "*" | awk '{print $5}'
-}
-
 prompt_kube() {
   if command -v kubectl > /dev/null 2>&1; then
-    prompt_segment $BULLETTRAIN_KCTX_BG $BULLETTRAIN_KCTX_FG $BULLETTRAIN_KCTX_PREFIX" $(_kubectl_context):$(_kubectl_namespace)"
+    local current_namespace="$(kubectl config get-contexts | grep '*' | awk '{print $2 ":" $5}')"
+    prompt_segment $BULLETTRAIN_KCTX_BG $BULLETTRAIN_KCTX_FG $BULLETTRAIN_KCTX_PREFIX" $current_namespace"
   fi
 }
 
