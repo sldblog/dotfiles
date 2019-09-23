@@ -1,5 +1,6 @@
 brew 'git'
 brew 'htop'
+brew 'hub'
 brew 'jq'
 brew 'moreutils'
 brew 'openssl'
