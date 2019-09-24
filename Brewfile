@@ -19,5 +19,8 @@ brew 'python'
 brew 'rbenv'
 brew 'ruby-build'
 
+brew 'shellcheck'
+brew 'shfmt'
+
 cask_args appdir: "/Applications"
 cask 'p4v'
