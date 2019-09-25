@@ -128,11 +128,20 @@ function install_vim_addons {
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
+function install_vscode_extensions {
+  msg_progress "Installing Visual Studio Code extensions."
+
+  while read extension; do
+    code-oss --install-extension "$extension"
+  done <"$DOTFILES/configuration/vscode.extensions"
+}
+
 install_zsh
 symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+install_vscode_extensions
 apply_time_config
 apply_java_config
 apply_git_config
