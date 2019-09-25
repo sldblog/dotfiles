@@ -47,7 +47,7 @@ function symlink_files {
 function install_dependencies {
   if [ "$UNAME" = "Linux" ]; then
     msg_progress "Installing Pacman dependencies. May ask for sudo password."
-    local packages=$(tr '\n' ' ' <"$DOTFILES"/Pacmanfile)
+    packages=$(tr '\n' ' ' <"$DOTFILES"/Pacmanfile)
     sudo pacman --sync --refresh
     sudo pacman --sync --needed --noconfirm "$packages"
   fi
