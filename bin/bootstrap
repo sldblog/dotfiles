@@ -131,7 +131,7 @@ function install_vim_addons {
 function install_vscode_extensions {
   msg_progress "Installing Visual Studio Code extensions."
 
-  while read extension; do
+  while read -r extension; do
     code-oss --install-extension "$extension"
   done <"$DOTFILES/configuration/vscode.extensions"
 }
