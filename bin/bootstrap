@@ -3,22 +3,22 @@
 DOTFILES="$(cd "$(dirname "$0")"/.. && pwd)"
 UNAME="$(uname)"
 
-function msg_progress {
+function msg_progress() {
   echo -e "\n\033[33m🕵 $1\033[0m"
 }
 
-function msg_done {
+function msg_done() {
   echo -e "\n\033[32m✳ Done!\033[0m"
 }
 
-function install_zsh {
+function install_zsh() {
   msg_progress "Installing oh-my-zsh."
 
   git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
   (cd "$HOME"/.oh-my-zsh || git pull --ff-only)
 }
 
-function symlink_files {
+function symlink_files() {
   msg_progress "Linking files."
 
   for file in .zshenv .zshrc; do
@@ -44,7 +44,7 @@ function symlink_files {
   ln -svf "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location"
 }
 
-function install_dependencies {
+function install_dependencies() {
   if [ "$UNAME" = "Linux" ]; then
     msg_progress "Installing Pacman dependencies. May ask for sudo password."
     packages=$(tr '\n' ' ' <"$DOTFILES"/Pacmanfile)
@@ -61,7 +61,7 @@ function install_dependencies {
   pip install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
-function apply_java_config {
+function apply_java_config() {
   msg_progress "Checking Java version."
   if java -version 2>&1 | grep 'version "11.'; then
     return
@@ -73,7 +73,7 @@ function apply_java_config {
   fi
 }
 
-function apply_time_config {
+function apply_time_config() {
   if [ "$UNAME" = "Linux" ]; then
     msg_progress "Configuring NTP service, may ask for sudo password."
 
@@ -84,7 +84,7 @@ function apply_time_config {
   fi
 }
 
-function apply_git_config {
+function apply_git_config() {
   msg_progress "Applying git configuration."
 
   git config --global user.email "david.lantos@gmail.com"
@@ -110,7 +110,7 @@ function apply_git_config {
   git lfs install
 }
 
-function install_zsh_addons {
+function install_zsh_addons() {
   msg_progress "Installing zsh addons."
 
   theme_file="$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
@@ -119,7 +119,7 @@ function install_zsh_addons {
     -o "$theme_file" && echo "zsh theme $(basename "$theme_file") installed"
 }
 
-function install_vim_addons {
+function install_vim_addons() {
   msg_progress "Installing vim addons."
 
   mkdir -p "$HOME"/.vim/bundle/
@@ -128,7 +128,7 @@ function install_vim_addons {
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
-function install_vscode_extensions {
+function install_vscode_extensions() {
   msg_progress "Installing Visual Studio Code extensions."
 
   while read -r extension; do
