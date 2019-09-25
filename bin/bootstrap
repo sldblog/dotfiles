@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES="$(cd $(dirname $0)/.. && pwd)"
+DOTFILES="$(cd $(dirname "$0")/.. && pwd)"
 UNAME="$(uname)"
 
 function msg_progress {
@@ -14,8 +14,8 @@ function msg_done {
 function install_zsh {
   msg_progress "Installing oh-my-zsh."
 
-  git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-  (cd $HOME/.oh-my-zsh || git pull --ff-only)
+  git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
+  (cd "$HOME"/.oh-my-zsh || git pull --ff-only)
 }
 
 function symlink_files {
@@ -29,10 +29,10 @@ function symlink_files {
     ln -svf "$DOTFILES/configuration/$file" "$HOME/$file"
   done
 
-  mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
+  mkdir -p "$HOME"/.gnupg && chmod 700 "$HOME"/.gnupg
   ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
-  mkdir -p $HOME/.lein
+  mkdir -p "$HOME"/.lein
   ln -svf "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
 
   local vscode_settings_location=""
@@ -47,18 +47,18 @@ function symlink_files {
 function install_dependencies {
   if [ "$UNAME" = "Linux" ]; then
     msg_progress "Installing Pacman dependencies. May ask for sudo password."
-    local packages=$(tr '\n' ' ' < $DOTFILES/Pacmanfile)
+    local packages=$(tr '\n' ' ' <"$DOTFILES"/Pacmanfile)
     sudo pacman --sync --refresh
-    sudo pacman --sync --needed --noconfirm $packages
+    sudo pacman --sync --needed --noconfirm "$packages"
   fi
 
   if [ "$UNAME" = "Darwin" ]; then
     msg_progress "Installing Brew dependencies."
-    brew bundle check --file=$DOTFILES/Brewfile &>/dev/null  || brew bundle --file=$DOTFILES/Brewfile
+    brew bundle check --file="$DOTFILES"/Brewfile &>/dev/null || brew bundle --file="$DOTFILES"/Brewfile
   fi
 
   msg_progress "Installing Pip dependencies."
-  pip install --upgrade --requirement $DOTFILES/Pipfile
+  pip install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
 function apply_java_config {
@@ -114,17 +114,17 @@ function install_zsh_addons {
   msg_progress "Installing zsh addons."
 
   theme_file="$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
-  rm -f $theme_file
+  rm -f "$theme_file"
   curl --silent https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
-    -o $theme_file && echo "zsh theme $(basename $theme_file) installed"
+    -o "$theme_file" && echo "zsh theme $(basename "$theme_file") installed"
 }
 
 function install_vim_addons {
   msg_progress "Installing vim addons."
 
-  mkdir -p $HOME/.vim/bundle/
-  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-  (cd $HOME/.vim/bundle/Vundle.vim || git pull --ff-only)
+  mkdir -p "$HOME"/.vim/bundle/
+  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME"/.vim/bundle/Vundle.vim
+  (cd "$HOME"/.vim/bundle/Vundle.vim || git pull --ff-only)
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
