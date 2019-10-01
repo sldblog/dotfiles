@@ -37,11 +37,12 @@ function symlink_files() {
 
   local vscode_settings_location=""
   if [ "$UNAME" = "Linux" ]; then
-    vscode_settings_location="$HOME/.config/Code - OSS/User/settings.json"
+    vscode_settings_location="$HOME/.config/Code - OSS/User"
   else
-    vscode_settings_location="$HOME/Library/Application Support/Code/User/settings.json"
+    vscode_settings_location="$HOME/Library/Application Support/Code/User"
   fi
-  ln -svf "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location"
+  ln -svf "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location/settings.json"
+  ln -svf "$DOTFILES/configuration/vscode.user-keybindings.json" "$vscode_settings_location/keybindings.json"
 }
 
 function install_dependencies() {
