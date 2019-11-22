@@ -1,4 +1,5 @@
 brew 'git'
+brew 'git-lfs'
 brew 'htop'
 brew 'hub'
 brew 'jq'
