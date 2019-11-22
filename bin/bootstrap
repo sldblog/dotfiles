@@ -56,6 +56,7 @@ function install_dependencies() {
 
   if [ "$UNAME" = "Darwin" ]; then
     msg_progress "Installing Brew dependencies."
+    brew --version || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew bundle check --file="$DOTFILES"/Brewfile &>/dev/null || brew bundle --file="$DOTFILES"/Brewfile
   fi
 
