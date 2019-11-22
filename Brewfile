@@ -5,7 +5,7 @@ brew 'hub'
 brew 'jq'
 brew 'moreutils'
 brew 'openssl'
-brew 'the_silver_searcher'
+brew 'ripgrep'
 brew 'vim'
 
 brew 'gpg'
