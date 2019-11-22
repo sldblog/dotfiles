@@ -14,7 +14,6 @@ brew 'kubernetes-cli'
 brew 'kubectx'
 brew 'stern'
 
-brew 'clojure'
 brew 'python'
 brew 'rbenv'
 brew 'ruby-build'
@@ -24,3 +23,6 @@ brew 'shfmt'
 
 cask_args appdir: "/Applications"
 cask 'p4v'
+
+cask 'adoptopenjdk'
+brew 'clojure'
