@@ -142,7 +142,7 @@ function install_vscode_extensions() {
   msg_progress "Installing Visual Studio Code extensions."
 
   while read -r extension; do
-    code-oss --install-extension "$extension"
+    code --install-extension "$extension"
   done <"$DOTFILES/configuration/vscode.extensions"
 }
 

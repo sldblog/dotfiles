@@ -28,4 +28,6 @@ cask_args appdir: "/Applications"
 cask 'p4v'
 
 cask 'adoptopenjdk'
+cask 'visual-studio-code'
+
 brew 'clojure'
