@@ -58,6 +58,13 @@ function install_dependencies() {
     msg_progress "Installing Brew dependencies."
     brew --version || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew bundle check --file="$DOTFILES"/Brewfile &>/dev/null || brew bundle --file="$DOTFILES"/Brewfile
+
+    msg_progress "Installing App Store dependencies."
+    mas install 462058435 # Excel
+    mas install 462054704 # Word
+    mas install 784801555 # OneNote
+    mas install 823766827 # OneDrive
+    mas install 803453959 # Slack
   fi
 
   msg_progress "Installing Pip dependencies."

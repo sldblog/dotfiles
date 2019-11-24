@@ -1,3 +1,5 @@
+brew 'mas'
+
 brew 'git'
 brew 'git-lfs'
 brew 'htop'
