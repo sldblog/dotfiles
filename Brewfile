@@ -29,5 +29,6 @@ cask 'p4v'
 
 cask 'adoptopenjdk'
 cask 'visual-studio-code'
+cask 'homebrew/cask-fonts/font-hack'
 
 brew 'clojure'
