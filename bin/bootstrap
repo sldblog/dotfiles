@@ -64,6 +64,7 @@ function install_dependencies() {
     mas install 462054704 # Word
     mas install 784801555 # OneNote
     mas install 823766827 # OneDrive
+    mas install 1274495053 # ToDo
     mas install 803453959 # Slack
     mas install 1118136179 # AutoMute
   fi
