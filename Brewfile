@@ -1,33 +1,30 @@
+cask_args appdir: "/Applications"
+
+# Installers
 brew 'mas'
 
-brew 'git'
-brew 'git-lfs'
-brew 'htop'
-brew 'hub'
-brew 'jq'
-brew 'moreutils'
-brew 'openssl'
-brew 'ripgrep'
-brew 'vim'
-
-brew 'gpg'
-brew 'pinentry-mac'
-
-brew 'kubernetes-cli'
-brew 'kubectx'
-brew 'stern'
-
-brew 'shellcheck'
-brew 'shfmt'
-
-cask_args appdir: "/Applications"
-cask 'p4v'
-
 # Editors
+brew 'vim'
 cask 'visual-studio-code'
 
 # Tools
+brew 'git'
+brew 'git-lfs'
+brew 'gpg'
+brew 'htop'
+brew 'hub'
+brew 'jq'
+brew 'kubectx'
+brew 'kubernetes-cli'
+brew 'moreutils'
+brew 'openssl'
+brew 'pinentry-mac'
+brew 'ripgrep'
+brew 'shellcheck'
+brew 'shfmt'
+brew 'stern'
 cask '1password-cli'
+cask 'p4v'
 
 # Fonts
 cask 'homebrew/cask-fonts/font-hack'
