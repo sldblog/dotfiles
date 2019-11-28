@@ -23,9 +23,16 @@ brew 'shfmt'
 cask_args appdir: "/Applications"
 cask 'p4v'
 
+# Editors
 cask 'visual-studio-code'
+
+# Tools
+cask '1password-cli'
+
+# Fonts
 cask 'homebrew/cask-fonts/font-hack'
 
+# Languages
 cask 'adoptopenjdk'
 brew 'clojure'
 brew 'elixir'
