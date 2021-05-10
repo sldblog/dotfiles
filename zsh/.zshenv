@@ -9,6 +9,7 @@ source $DOTFILES/docker.rc
 source $DOTFILES/editor.rc
 source $DOTFILES/elixir.rc
 source $DOTFILES/git.rc
+source $DOTFILES/go.rc
 source $DOTFILES/java.rc
 source $DOTFILES/kubernetes.rc
 source $DOTFILES/ruby.rc
