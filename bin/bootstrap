@@ -32,9 +32,6 @@ function symlink_files() {
   mkdir -p "$HOME"/.gnupg && chmod 700 "$HOME"/.gnupg
   ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
-  mkdir -p "$HOME"/.lein
-  ln -svf "$DOTFILES/configuration/lein-profiles.clj" "$HOME/.lein/profiles.clj"
-
   local vscode_settings_location=""
   if [ "$UNAME" = "Linux" ]; then
     vscode_settings_location="$HOME/.config/Code - OSS/User"
