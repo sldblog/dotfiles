@@ -31,16 +31,6 @@ function symlink_files() {
 
   mkdir -p "$HOME"/.gnupg && chmod 700 "$HOME"/.gnupg
   ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
-
-  local vscode_settings_location=""
-  if [ "$UNAME" = "Linux" ]; then
-    vscode_settings_location="$HOME/.config/Code - OSS/User"
-  else
-    vscode_settings_location="$HOME/Library/Application Support/Code/User"
-  fi
-  mkdir -p "$vscode_settings_location"
-  ln -svf "$DOTFILES/configuration/vscode.user-settings.json" "$vscode_settings_location/settings.json"
-  ln -svf "$DOTFILES/configuration/vscode.user-keybindings.json" "$vscode_settings_location/keybindings.json"
 }
 
 function install_dependencies() {
@@ -138,20 +128,11 @@ function install_vim_addons() {
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
-function install_vscode_extensions() {
-  msg_progress "Installing Visual Studio Code extensions."
-
-  while read -r extension; do
-    code --install-extension "$extension"
-  done <"$DOTFILES/configuration/vscode.extensions"
-}
-
 install_zsh
 symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
-install_vscode_extensions
 apply_time_config
 apply_java_config
 apply_git_config
