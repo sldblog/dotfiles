@@ -25,7 +25,7 @@ function symlink_files() {
     ln -svf "$DOTFILES/zsh/$file" "$HOME/$file"
   done
 
-  for file in .gemrc .vimrc .agignore .iex.exs; do
+  for file in .gemrc .vimrc .iex.exs; do
     ln -svf "$DOTFILES/configuration/$file" "$HOME/$file"
   done
 
