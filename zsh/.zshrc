@@ -10,6 +10,7 @@ BULLETTRAIN_PROMPT_ORDER=(
   dir
   git
   cmd_exec_time
+  ruby
   kube
 )
 
