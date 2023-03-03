@@ -54,7 +54,6 @@ function install_dependencies() {
     mas install 1274495053 # ToDo
     mas install 803453959 # Slack
     mas install 1118136179 # AutoMute
-    mas install 1333542190 # 1Password
   fi
 
   msg_progress "Installing Pip dependencies."
