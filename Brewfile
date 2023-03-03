@@ -31,7 +31,6 @@ cask 'homebrew/cask-fonts/font-hack'
 
 # Languages
 cask 'temurin'
-brew 'clojure'
 brew 'elixir'
 brew 'go'
 brew 'python'
