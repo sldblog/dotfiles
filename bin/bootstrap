@@ -61,6 +61,24 @@ function install_dependencies() {
   pip install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
+function download_installers() {
+  if [ "$UNAME" = "Darwin" ]; then
+    output_dir="$HOME/Downloads/Installers"
+    mkdir -p "$output_dir"
+
+    msg_progress "Downloading Mac installers to $output_dir."
+    for link in \
+      "https://downloads.1password.com/mac/1Password.zip" \
+      "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.3.14493.dmg"
+    do
+      curl --location --silent --show-error --remote-name \
+        --continue-at - \
+        "$link" \
+        --output-dir "$output_dir"
+    done
+  fi
+}
+
 function apply_java_config() {
   msg_progress "Checking Java version."
   if java -version 2>&1 | grep 'version "11.'; then
@@ -133,6 +151,7 @@ symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+download_installers
 apply_time_config
 apply_java_config
 apply_git_config
