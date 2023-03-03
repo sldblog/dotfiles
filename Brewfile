@@ -30,7 +30,7 @@ cask 'p4v'
 cask 'homebrew/cask-fonts/font-hack'
 
 # Languages
-cask 'adoptopenjdk'
+cask 'temurin'
 brew 'clojure'
 brew 'elixir'
 brew 'go'
