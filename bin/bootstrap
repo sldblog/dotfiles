@@ -54,6 +54,7 @@ function install_dependencies() {
     mas install 1274495053 # ToDo
     mas install 803453959 # Slack
     mas install 1118136179 # AutoMute
+    mas install 1423210932 # Flow (Pomodoro timer)
   fi
 
   msg_progress "Installing Pip dependencies."
