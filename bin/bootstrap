@@ -58,7 +58,8 @@ function install_dependencies() {
   fi
 
   msg_progress "Installing Pip dependencies."
-  pip install --upgrade --requirement "$DOTFILES"/Pipfile
+  python3 -m pip install --upgrade pip
+  pip3 install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
 function download_installers() {
