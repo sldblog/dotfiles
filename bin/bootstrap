@@ -69,9 +69,11 @@ function download_installers() {
 
     msg_progress "Downloading Mac installers to $output_dir."
     for link in \
+      "https://download-mac.grammarly.com/Grammarly.dmg" \
+      "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.3.14493.dmg" \
       "https://downloads.1password.com/mac/1Password.zip" \
-      "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.3.14493.dmg"
-    do
+      "https://github.com/rxhanson/Rectangle/releases/download/v0.66/Rectangle0.66.dmg" \
+    ; do
       curl --location --silent --show-error --remote-name \
         --continue-at - \
         "$link" \
