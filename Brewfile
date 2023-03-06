@@ -8,13 +8,14 @@ brew 'vim'
 cask 'visual-studio-code'
 
 # Tools
-brew 'git-lfs'
 brew 'git'
+brew 'git-lfs'
 brew 'gnupg'
 brew 'graphviz'
 brew 'htop'
 brew 'hub'
 brew 'jq'
+brew 'libpq' # for pg gem
 brew 'moreutils'
 brew 'openssl'
 brew 'pinentry'
