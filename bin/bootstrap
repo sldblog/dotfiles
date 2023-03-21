@@ -125,6 +125,7 @@ function apply_git_config() {
     git config --global mergetool.p4merge.path "/Applications/p4merge.app/Contents/MacOS/p4merge"
   fi
 
+  git config --global alias.rc "diff origin/main --name-only"
   git config --global alias.rl "reflog --date=iso"
   git config --global alias.ll "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(green)%d%Creset %s %Cblue(%cr - %cd) %C(bold blue)<%ae>%Creset' --abbrev-commit"
 
