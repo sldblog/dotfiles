@@ -24,6 +24,7 @@ brew 'shellcheck'
 brew 'shfmt'
 brew 'stern'
 brew 'trivy'
+brew 'yq'
 cask '1password-cli'
 cask 'p4v'
 
