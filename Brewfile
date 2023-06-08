@@ -13,7 +13,6 @@ brew 'git-lfs'
 brew 'gnupg'
 brew 'graphviz'
 brew 'htop'
-brew 'hub'
 brew 'jq'
 brew 'libpq' # for pg gem
 brew 'moreutils'
