@@ -10,20 +10,4 @@ function gii {
   findgits | local_exec "$@"
 }
 
-# Show either HEAD or the given reference commit
-function gh {
-  local ref="HEAD"
-  if [ $# -gt 0 ]; then
-    local ref="$1"
-    shift
-  fi
-
-  git show --pretty=fuller ${ref} $*
-}
-
-# Show files that changed since "origin/master"
-function what_changed {
-  (git diff --name-only --diff-filter=d origin/master..HEAD; git ls-files -us) | cat
-}
-
 alias gll='git ll'
