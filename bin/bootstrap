@@ -2,6 +2,7 @@
 
 DOTFILES="$(cd "$(dirname "$0")"/.. && pwd)"
 UNAME="$(uname)"
+ARCH="$(uname -m)"
 
 function msg_progress() {
   echo -e "\n\033[33m🕵 $1\033[0m"
@@ -62,23 +63,34 @@ function install_dependencies() {
   pip3 install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
+function download() {
+  local output_dir="$1"
+  local file="$2"
+
+  if [ -e "$file" ]; then
+    msg_progress "Using list from $file"
+  else
+    msg_progress "$file does not exist, ignoring"
+    return
+  fi
+
+  while read -r url; do
+    echo "$url"
+    curl --location --silent --show-error --remote-name \
+      --continue-at - \
+      "$url" \
+      --output-dir "$output_dir"
+  done < "$file"
+}
+
 function download_installers() {
   if [ "$UNAME" = "Darwin" ]; then
     output_dir="$HOME/Downloads/Installers"
     mkdir -p "$output_dir"
 
     msg_progress "Downloading Mac installers to $output_dir."
-    for link in \
-      "https://download-mac.grammarly.com/Grammarly.dmg" \
-      "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.3.14493.dmg" \
-      "https://downloads.1password.com/mac/1Password.zip" \
-      "https://github.com/rxhanson/Rectangle/releases/download/v0.66/Rectangle0.66.dmg" \
-    ; do
-      curl --location --silent --show-error --remote-name \
-        --continue-at - \
-        "$link" \
-        --output-dir "$output_dir"
-    done
+    download "$output_dir" "downloads.$UNAME.common"
+    download "$output_dir" "downloads.$UNAME.$ARCH"
   fi
 }
 
