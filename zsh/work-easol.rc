@@ -1,0 +1,2 @@
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$HOME/bin:$PATH"
+export DD_TRACE_STARTUP_LOGS=false
