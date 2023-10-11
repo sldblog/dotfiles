@@ -13,6 +13,7 @@ source $DOTFILES/go.rc
 source $DOTFILES/java.rc
 source $DOTFILES/kubernetes.rc
 source $DOTFILES/node.rc
+source $DOTFILES/rg.rc
 source $DOTFILES/ruby.rc
 source $DOTFILES/services.rc
 source $DOTFILES/shell.rc

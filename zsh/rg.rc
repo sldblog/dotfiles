@@ -1,0 +1,4 @@
+# Same as unqualified `rg` command but ignores spec directories
+function rgs() {
+  rg "$@" --iglob='!spec/'
+}

@@ -10,8 +10,3 @@ function man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 }
-
-# Same as unqualified `ag` command but ignores spec and db directories
-function ags() {
-  ag "$@" --ignore-dir=spec --ignore-dir=db
-}
