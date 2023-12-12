@@ -123,7 +123,13 @@ function apply_git_config() {
   git config --global user.email "david.lantos@gmail.com"
   git config --global user.name "David Lantos"
 
-  git config --global user.signingkey "0x46744D6E3CC64734"
+  if [ "$UNAME" = "Darwin" ]; then
+    git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzH4nIgxfZrflrMxiyfDBjs43nVwFrG+SSlkGJUvWXV"
+    git config --global gpg.format "ssh"
+    git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  else
+    git config --global user.signingkey "0x46744D6E3CC64734"
+  fi
   git config --global commit.gpgsign "true"
 
   git config --global core.excludesfile "$DOTFILES/configuration/.gitignore"
