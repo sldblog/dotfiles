@@ -11,7 +11,7 @@ BULLETTRAIN_PROMPT_ORDER=(
   git
   cmd_exec_time
   ruby
-  kube
+  nvm
 )
 
 prompt_kube() {
