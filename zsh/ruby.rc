@@ -4,12 +4,12 @@ alias be='bundle exec'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-# Show code files that changed since "origin/master"
-function what_code_changed {
-  what_changed | grep '.rb$' | grep -v 'db/'
+# Show spec files that changed since main
+function which_specs_changed {
+  git_files_changed "$@" | grep '^spec/.*_spec.rb$'
 }
 
-# Show spec files that changed since "origin/master"
-function what_specs_changed {
-  what_changed | grep '_spec.rb$'
+# Show test files that changed since main
+function which_tests_changed {
+  git_files_changed "$@" | grep '^test/.*_test.rb$'
 }
