@@ -1,6 +1,9 @@
 export PATH="/opt/homebrew/opt/postgresql@12/bin:$HOME/bin:$PATH"
 export AWS_PROFILE="Engineer-878877078763"
 
+# use with `op run -- command_that_needs_this env`
+export HOMEBREW_GITHUB_API_TOKEN="op://Private/HOMEBREW_GITHUB_API_TOKEN/credential"
+
 cl() {
   cd $HOME/Work/github.com/meetcleo/meetcleo
 }
