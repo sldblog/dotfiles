@@ -8,6 +8,7 @@ brew 'vim'
 cask 'visual-studio-code'
 
 # Tools
+brew 'difftastic'
 brew 'git'
 brew 'git-lfs'
 brew 'gnupg'
