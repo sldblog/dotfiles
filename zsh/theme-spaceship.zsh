@@ -1,0 +1,5 @@
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_USER_SHOW=always
+SPACESHIP_GIT_STATUS_SHOW=false
+
+spaceship remove aws

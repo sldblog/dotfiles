@@ -1,4 +1,5 @@
 ZSH_THEME="spaceship"
+export SPACESHIP_CONFIG="$DOTFILES/theme-spaceship.zsh"
 
 export TERM="xterm-256color"
 export ZSH=$HOME/.oh-my-zsh
