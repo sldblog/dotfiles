@@ -153,10 +153,14 @@ function apply_git_config() {
 function install_zsh_addons() {
   msg_progress "Installing zsh addons."
 
-  theme_file="$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
-  rm -f "$theme_file"
-  curl --silent https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
-    -o "$theme_file" && echo "zsh theme $(basename "$theme_file") installed"
+  old_theme_file="$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
+  new_theme_file="$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+  new_theme_dir="$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
+  rm -rf "$old_theme_file" "$new_theme_file" "$new_theme_dir"
+
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1 && \
+    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" && \
+    echo "zsh theme installed"
 }
 
 function install_vim_addons() {
