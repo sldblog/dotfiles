@@ -32,14 +32,12 @@ cask 'p4v'
 cask 'homebrew/cask-fonts/font-hack'
 
 # Languages
+brew 'asdf'
 cask 'temurin'
 brew 'elixir'
 brew 'go'
 brew 'python'
 brew 'pyenv'
-brew 'rbenv'
-brew 'ruby-build'
-brew 'nvm'
 
 # Environments
 tap 'heroku/brew'

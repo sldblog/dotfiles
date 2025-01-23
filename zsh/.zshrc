@@ -7,4 +7,4 @@ source $ZSH/oh-my-zsh.sh
 export GNUPGHOME="$HOME/Work/gpg"
 export GPG_TTY="$(tty)"
 
-eval "$(rbenv init -)"
+. "$(brew --prefix asdf)"/libexec/asdf.sh

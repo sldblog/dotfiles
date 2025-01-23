@@ -172,11 +172,20 @@ function install_vim_addons() {
   vim +PluginInstall +qall && echo "vim plugins installed"
 }
 
+function install_asdf_plugins() {
+  msg_progress "Installing asdf plugins."
+
+  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  echo "asdf plugins installed"
+}
+
 install_zsh
 symlink_files
 install_dependencies
 install_vim_addons
 install_zsh_addons
+install_asdf_plugins
 download_installers
 apply_time_config
 apply_java_config

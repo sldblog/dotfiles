@@ -2,7 +2,6 @@ plugins=(ruby $plugins)
 
 alias be='bundle exec'
 
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Show spec files that changed since main
 function which_specs_changed {
