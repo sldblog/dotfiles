@@ -7,3 +7,7 @@ export HOMEBREW_GITHUB_API_TOKEN="op://Private/HOMEBREW_GITHUB_API_TOKEN/credent
 cl() {
   cd $HOME/Work/github.com/meetcleo/meetcleo
 }
+
+rt() {
+  PARALLEL_WORKERS=1 MINITEST_REPORTER=SpecReporter bin/rails test "$@"
+}
