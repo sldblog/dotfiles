@@ -1,4 +1,4 @@
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$HOME/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$HOME/bin:$PATH"
 export AWS_PROFILE="Engineer-878877078763"
 
 # use with `op run -- command_that_needs_this env`
