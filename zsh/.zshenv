@@ -4,6 +4,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 plugins=() # extended by sourcing below
 source $DOTFILES/shared.rc
 
+# keep before brew, otherwise PATH gets jumbled up
+source $DOTFILES/asdf.rc
+
 source $DOTFILES/brew.rc
 source $DOTFILES/docker.rc
 source $DOTFILES/editor.rc

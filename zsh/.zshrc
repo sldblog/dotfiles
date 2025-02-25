@@ -7,5 +7,3 @@ source $ZSH/oh-my-zsh.sh
 
 export GNUPGHOME="$HOME/Work/gpg"
 export GPG_TTY="$(tty)"
-
-. "$(brew --prefix asdf)"/libexec/asdf.sh
