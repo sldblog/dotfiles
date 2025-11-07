@@ -14,7 +14,6 @@ brew 'git-lfs'
 brew 'gnupg'
 brew 'graphviz'
 brew 'htop'
-brew 'jq'
 brew 'libpq' # for pg gem
 brew 'moreutils'
 brew 'openssl'
@@ -24,9 +23,12 @@ brew 'shellcheck'
 brew 'shfmt'
 brew 'stern'
 brew 'trivy'
-brew 'yq'
 cask '1password-cli'
 cask 'p4v'
+
+brew 'jq'
+brew 'yq'
+brew 'qsv'
 
 # Fonts
 cask 'homebrew/cask-fonts/font-hack'
