@@ -11,11 +11,11 @@ SPACESHIP_PROMPT_ORDER=(
   user
   dir
   git
-  node
   ruby
-  python
   elixir
+  python
   golang
+  node
   exec_time
   line_sep
   exit_code
