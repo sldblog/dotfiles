@@ -7,6 +7,7 @@ source $DOTFILES/shared.rc
 # keep before brew, otherwise PATH gets jumbled up
 source $DOTFILES/mise.rc
 
+source $DOTFILES/ai_tooling.rc
 source $DOTFILES/brew.rc
 source $DOTFILES/docker.rc
 source $DOTFILES/editor.rc

@@ -7,3 +7,5 @@
 .vscode/
 tmp/
 tags
+.claude/worktrees
+.claude/settings.local.json

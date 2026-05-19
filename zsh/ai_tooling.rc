@@ -1,0 +1,11 @@
+function claude-personal {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-personal" claude "$@"
+}
+
+function sc-personal {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-personal" /Applications/Superconductor.app/Contents/MacOS/superconductor "$@"
+}
+
+function claude-ds {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-ds" claude "$@"
+}
