@@ -9,5 +9,5 @@ cl() {
 }
 
 rt() {
-  PARALLEL_WORKERS=1 MINITEST_REPORTER=SpecReporter bin/rails test "$@"
+  EAGER_LOAD_TEST_ENVIRONMENT=false PARALLEL_WORKERS=1 MINITEST_REPORTER=SpecReporter bin/rails test "$@"
 }
