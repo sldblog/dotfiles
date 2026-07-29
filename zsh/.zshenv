@@ -22,4 +22,5 @@ source $DOTFILES/ruby.rc
 source $DOTFILES/services.rc
 source $DOTFILES/shell.rc
 
+source $DOTFILES/work-personal.rc
 source $DOTFILES/work-cleo.rc

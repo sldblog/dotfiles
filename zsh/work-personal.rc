@@ -1,0 +1,5 @@
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$HOME/bin:$PATH"
+
+cdp() {
+  cd $HOME/Work/github.com/sldblog
+}
