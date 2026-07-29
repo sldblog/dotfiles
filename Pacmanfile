@@ -4,6 +4,7 @@ chromium
 code
 docker
 docker-compose
+ghostty
 git
 git-lfs
 htop
@@ -12,13 +13,13 @@ jq
 kubectl
 moreutils
 postgresql-libs
-vim
+
+fd
+neovim
+ripgrep
 
 noto-fonts-emoji
 ntp
 xorg-xrandr
 
-elixir
-go
-jdk11-openjdk
-python-pip
+mise

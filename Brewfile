@@ -1,14 +1,14 @@
-cask_args appdir: "/Applications"
+cask_args appdir: '/Applications'
 
 # Installers
 brew 'mas'
 
 # Editors
-brew 'vim'
-cask 'visual-studio-code'
+brew 'nvim'
 
 # Tools
 brew 'difftastic'
+brew 'fd'
 brew 'git'
 brew 'git-lfs'
 brew 'gnupg'
@@ -31,18 +31,13 @@ brew 'yq'
 brew 'qsv'
 
 # Fonts
-cask 'homebrew/cask-fonts/font-hack'
+cask 'font-hack'
 
 # Languages
-brew 'asdf'
-cask 'temurin'
-brew 'elixir'
-brew 'go'
+brew 'mise'
 brew 'python'
 brew 'pyenv'
 
 # Environments
-tap 'heroku/brew'
-brew 'heroku'
 brew 'kubectx'
 brew 'kubernetes-cli'

@@ -48,19 +48,10 @@ function install_dependencies() {
     brew bundle check --file="$DOTFILES"/Brewfile &>/dev/null || brew bundle --file="$DOTFILES"/Brewfile
 
     msg_progress "Installing App Store dependencies."
-    mas install 462058435 # Excel
-    mas install 462054704 # Word
-    mas install 784801555 # OneNote
-    mas install 823766827 # OneDrive
-    mas install 1274495053 # ToDo
-    mas install 803453959 # Slack
+    mas install 462058435  # Excel
+    mas install 823766827  # OneDrive
     mas install 1118136179 # AutoMute
-    mas install 1423210932 # Flow (Pomodoro timer)
   fi
-
-  msg_progress "Installing Pip dependencies."
-  python3 -m pip install --upgrade pip
-  pip3 install --upgrade --requirement "$DOTFILES"/Pipfile
 }
 
 function download() {
@@ -80,7 +71,7 @@ function download() {
       --continue-at - \
       "$url" \
       --output-dir "$output_dir"
-  done < "$file"
+  done <"$file"
 }
 
 function download_installers() {
@@ -89,20 +80,7 @@ function download_installers() {
     mkdir -p "$output_dir"
 
     msg_progress "Downloading Mac installers to $output_dir."
-    download "$output_dir" "downloads.$UNAME.common"
-    download "$output_dir" "downloads.$UNAME.$ARCH"
-  fi
-}
-
-function apply_java_config() {
-  msg_progress "Checking Java version."
-  if java -version 2>&1 | grep 'version "11.'; then
-    return
-  fi
-
-  if [ "$UNAME" = "Linux" ]; then
-    msg_progress "Configuring default Java, may ask for sudo password."
-    sudo archlinux-java set java-11-openjdk
+    download "$output_dir" "downloads.$UNAME"
   fi
 }
 
@@ -158,37 +136,17 @@ function install_zsh_addons() {
   new_theme_dir="$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
   rm -rf "$old_theme_file" "$new_theme_file" "$new_theme_dir"
 
-  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1 && \
-    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" && \
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1 &&
+    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" &&
     echo "zsh theme installed"
-}
-
-function install_vim_addons() {
-  msg_progress "Installing vim addons."
-
-  mkdir -p "$HOME"/.vim/bundle/
-  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME"/.vim/bundle/Vundle.vim
-  (cd "$HOME"/.vim/bundle/Vundle.vim || git pull --ff-only)
-  vim +PluginInstall +qall && echo "vim plugins installed"
-}
-
-function install_asdf_plugins() {
-  msg_progress "Installing asdf plugins."
-
-  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-  echo "asdf plugins installed"
 }
 
 install_zsh
 symlink_files
 install_dependencies
-install_vim_addons
 install_zsh_addons
-install_asdf_plugins
 download_installers
 apply_time_config
-apply_java_config
 apply_git_config
 
 msg_done
