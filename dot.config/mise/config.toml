@@ -1,0 +1,10 @@
+[settings]
+trusted_config_paths = [
+  "~/.superconductor/worktrees",
+  "~/superconductor/projects",
+  "~/Work/github.com/sldblog",
+  "~/Work/github.com/meetcleo",
+]
+
+[settings.ruby]
+compile = false
