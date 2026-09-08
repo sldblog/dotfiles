@@ -11,3 +11,6 @@ export GPG_TTY="$(tty)"
 export SE_AVOID_STATS="true" # https://www.selenium.dev/documentation/selenium_manager/#data-collection
 
 eval "$($HOME/.local/bin/mise activate zsh)"
+
+export CIRCLE_NO_PAGER=1
+export DO_NOT_TRACK=1
