@@ -39,6 +39,22 @@ function symlink_files() {
   ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }
 
+function symlink_agent_files() {
+  msg_progress "Linking agent files."
+
+  managed_skills=$(find "$DOTFILES/dot.agents/skills/" -depth 1 -type d 2>/dev/null)
+  claude_dirs=$(find "$HOME" -maxdepth 1 -type d -name '.claude*' -prune 2>/dev/null)
+
+  for claudedir in $claude_dirs; do
+    mkdir -p "$claudedir/skills"
+
+    for skilldir in $managed_skills; do
+      skillname="$(basename "$skilldir")"
+      ln -svf "$skilldir" "$claudedir/skills/$skillname"
+    done
+  done
+}
+
 function install_dependencies() {
   if [ "$UNAME" = "Linux" ]; then
     msg_progress "Installing Pacman dependencies. May ask for sudo password."
@@ -148,6 +164,7 @@ function install_zsh_addons() {
 
 install_zsh
 symlink_files
+symlink_agent_files
 install_dependencies
 install_zsh_addons
 download_installers
