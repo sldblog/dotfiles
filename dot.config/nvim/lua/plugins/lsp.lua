@@ -6,6 +6,13 @@ return {
       ruby_lsp = {
         mason = false,
         cmd = { vim.fn.expand("~/.local/share/mise/shims/ruby-lsp"), "--beta" },
+        init_options = {
+          addonSettings = {
+            ["Ruby LSP Rails"] = {
+              enablePendingMigrationsPrompt = false,
+            },
+          },
+        },
       },
       sorbet = {
         mason = false,
