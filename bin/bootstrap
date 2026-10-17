@@ -42,10 +42,13 @@ function symlink_files() {
 function symlink_agent_files() {
   msg_progress "Linking agent files."
 
-  managed_skills=$(find "$DOTFILES/dot.agents/skills/" -depth 1 -type d 2>/dev/null)
+  agents_dir="$DOTFILES/dot.agents"
+  managed_skills=$(find "$agents_dir/skills/" -depth 1 -type d 2>/dev/null)
   claude_dirs=$(find "$HOME" -maxdepth 1 -type d -name '.claude*' -prune 2>/dev/null)
 
   for claudedir in $claude_dirs; do
+    ln -svf "$agents_dir/AGENTS.md" "$claudedir/CLAUDE.md"
+
     mkdir -p "$claudedir/skills"
 
     for skilldir in $managed_skills; do
