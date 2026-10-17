@@ -50,7 +50,13 @@ function symlink_agent_files() {
 
     for skilldir in $managed_skills; do
       skillname="$(basename "$skilldir")"
-      ln -svf "$skilldir" "$claudedir/skills/$skillname"
+      local_skilldir="$claudedir/skills/$skillname"
+
+      if [ ! -L "$local_skilldir" ]; then
+        ln -svf "$skilldir" "$local_skilldir"
+      else
+        echo "$local_skilldir already linked"
+      fi
     done
   done
 }
