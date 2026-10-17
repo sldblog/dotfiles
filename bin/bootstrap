@@ -53,6 +53,9 @@ function symlink_agent_files() {
       local_skilldir="$claudedir/skills/$skillname"
 
       if [ ! -L "$local_skilldir" ]; then
+        if [ -d "$local_skilldir" ]; then
+          rm -rvf "$local_skilldir/"
+        fi
         ln -svf "$skilldir" "$local_skilldir"
       else
         echo "$local_skilldir already linked"
