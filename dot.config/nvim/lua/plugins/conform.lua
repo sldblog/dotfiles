@@ -3,7 +3,8 @@ return {
   opts = {
     formatters = {
       rubocop = {
-        command = vim.fn.expand("~/.local/share/mise/shims/rubocop"),
+        command = vim.fn.expand("~/.local/share/mise/shims/bundle"),
+        prepend_args = { "exec", "rubocop" },
       },
     },
   },
