@@ -1,5 +1,5 @@
 DOTFILES=$(dirname $(readlink "${(%):-%N}"))
-export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 
 plugins=() # extended by sourcing below
 source $DOTFILES/shared.rc
