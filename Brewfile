@@ -7,28 +7,25 @@ brew 'mas'
 brew 'nvim'
 
 # Tools
-brew 'difftastic'
 brew 'fd'
+brew 'gh'
 brew 'git'
 brew 'git-lfs'
-brew 'gnupg'
 brew 'graphviz'
 brew 'htop'
+brew 'jq'
 brew 'libpq' # for pg gem
 brew 'moreutils'
 brew 'openssl'
-brew 'pinentry'
+brew 'qsv'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'shfmt'
-brew 'stern'
-brew 'trivy'
+brew 'yq'
+
 cask '1password-cli'
 cask 'p4v'
-
-brew 'jq'
-brew 'yq'
-brew 'qsv'
+cask 'ghostty'
 
 # Fonts
 cask 'font-hack'
@@ -37,7 +34,3 @@ cask 'font-hack'
 brew 'mise'
 brew 'python'
 brew 'pyenv'
-
-# Environments
-brew 'kubectx'
-brew 'kubernetes-cli'

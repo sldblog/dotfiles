@@ -34,9 +34,6 @@ function symlink_files() {
   for dir in $(fd --base-directory="$DOTFILES/dot.config/" --type=dir --exact-depth=1); do
     ln -svf "$DOTFILES/dot.config/$dir" "$HOME/.config/"
   done
-
-  mkdir -p "$HOME"/.gnupg && chmod 700 "$HOME"/.gnupg
-  ln -svf "$DOTFILES/configuration/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }
 
 function symlink_agent_files() {
