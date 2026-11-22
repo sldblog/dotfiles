@@ -21,6 +21,7 @@ brew 'qsv'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'shfmt'
+brew 'tmux'
 brew 'yq'
 
 cask '1password-cli'
