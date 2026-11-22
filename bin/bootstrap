@@ -22,7 +22,7 @@ function install_zsh() {
 function symlink_files() {
   msg_progress "Linking files."
 
-  for file in .zshenv .zshrc; do
+  for file in .zshrc; do
     ln -svf "$DOTFILES/zsh/$file" "$HOME/$file"
   done
 
