@@ -144,12 +144,8 @@ function apply_git_config() {
   git config --global push.default "simple"
 
   git config --global mergetool.keepBackup "false"
-
-  if [ "$UNAME" = "Darwin" ]; then
-    git config --global merge.tool "p4merge"
-    git config --global diff.tool "p4merge"
-    git config --global mergetool.p4merge.path "/Applications/p4merge.app/Contents/MacOS/p4merge"
-  fi
+  git config --global merge.tool diffview
+  git config --global mergetool.diffview.cmd 'nvim -n -c "DiffviewOpen" "$MERGE"'
 
   git config --global alias.rc "diff origin/main --name-only"
   git config --global alias.rl "reflog --date=iso"

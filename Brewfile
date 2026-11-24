@@ -25,7 +25,6 @@ brew 'tmux'
 brew 'yq'
 
 cask '1password-cli'
-cask 'p4v'
 cask 'ghostty'
 
 # Fonts
